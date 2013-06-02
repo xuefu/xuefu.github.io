@@ -1,11 +1,3 @@
----
-layout: post
-title: "ruby-style"
-date: 2013-06-02 14:31
-comments: true
-categories: 
----
-  
 # Prelude
 
 > Style is what separates the good from the great. <br/>
