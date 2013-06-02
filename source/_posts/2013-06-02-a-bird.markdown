@@ -1,0 +1,10 @@
+---
+layout: post
+title: "a bird"
+date: 2013-06-02 14:22
+comments: true
+categories: 
+---
+# I am a little bird !
+
+所谓的幸福，就是痛并快乐着！
