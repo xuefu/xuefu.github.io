@@ -1,0 +1,572 @@
+---
+layout: post
+title: "ruby-style"
+date: 2013-06-02 14:31
+comments: true
+categories: 
+---
+# 序幕
+
+> 是风格区分了好和伟大。 <br/>
+> -- Bozhidar Batsov
+
+作为 Ruby 开发者，有一件总是令我烦心的事 &mdash; Python 开发者有一份好的编程风格参考指南([PEP-8](http://www.python.org/dev/peps/pep-0008/)) 而我们永远没有一份官方指南，一份记录 Ruby 编程风格及最佳实践的指南。而我们确信风格很重要。我也相信这些好家伙们，像我们这些 Ruby 开发者，应该可以自己写一份这个梦寐以求的文档。
+
+这份指南开始是作为我们公司内部 Ruby 编程指南(由我所写的)。进行到某个部分时，我决定要把我的成果贡献给广大的 Ruby 社区，而且这个世界需要从另一个公司内部的一点帮助。然而这个世界也可以从由社区制定及策动的一系列 Ruby 编程惯例、实践及风格中受益。
+
+在开始写这份指南时，我收到世界上很多优秀 Ruby 社区用户们的反馈。感谢所有的建议及帮助！我们同心协力创造一个能够让每一个 Ruby 开发者受益的资源。
+
+顺道一提，如果你对 Rails 感兴趣，你可以看看这份互补的 [Ruby on Rails 3 风格指南](https://github.com/bbatsov/rails-style-guide)。
+
+# Ruby 风格指南
+
+这份 Ruby 风格指南向你推荐现实世界中的最佳实践，Ruby 程序员如何写出可被别的 Ruby 程序员维护的代码。一份风格指南反映出现实世界中的用法，并带有一个理想，避免已经公认是危险的事物不被人继续使用 –– 不管看起来是多么的好。
+
+本指南依照相关规则分成数个小节。我尽力在规则后面说明理由（如果省略的话，我相信理由是显而易见的）。
+
+我没有想到所有的规则 &mdash; 他们大致上是基于，我作为一个专业软体工程师的广泛生涯，从 Ruby 社区成员所得到的反馈及建议，和数个高度评价的 Ruby 编程资源，像是 ["Programming Ruby 1.9"](http://pragprog.com/book/ruby4/programming-ruby-1-9-2-0) 以及 ["The Ruby Programming Language"](http://www.amazon.com/Ruby-Programming-Language-David-Flanagan/dp/0596516177)。
+
+本指南仍在完善中 — 某些规则缺乏实例，某些规则没有例子来清楚地演示它们。在最后交付时，将会解决这些议题 — 现在就先把它们记在心理吧。
+
+你可以使用 [Transmuter](https://github.com/TechnoGate/transmuter) 来产生本指南的一份 PDF 或 HTML 复本。
+
+[rubocop](https://github.com/bbatsov/rubocop) 项目会自动检查你的 Ruby 代码是否符合这份 Ruby 风格指南。目前这个项目尚有许多功能缺漏，不足以被正式地使用，欢迎有志之士协助改进。
+
+本指南被翻译成下列语言：
+
+* [简体中文](https://github.com/JuanitoFatas/ruby-style-guide/blob/master/README-zhCN.md)
+* [繁體中文](https://github.com/JuanitoFatas/ruby-style-guide/blob/master/README-zhTW.md)
+* [法文](https://github.com/porecreat/ruby-style-guide/blob/master/README-frFR.md)
+
+## 目录
+
+* [源代码排版](#-2)
+* [语法](#-3)
+* [命名](#-4)
+* [注释](#-5)
+    * [注解](#-6)
+* [类别](#-7)
+* [异常](#-8)
+* [集合](#-9)
+* [字符串](#-10)
+* [正则表达式](#-11)
+* [百分比字面](#-12)
+* [元编程](#-13)
+* [其它](#-14)
+* [工具](#-15)
+
+## 源代码排版
+
+> 几乎每人都深信，每一个除了自己的风格都又丑又难读。把 "除了自己的" 拿掉，他们或许是对的...<br/>
+> -- Jerry Coffin (论缩排)
+
+* 使用 `UTF-8` 作为源文件的编码。
+* 每个缩排层级使用两个 **空格**。不要使用 Hard Tabs。
+
+    ```Ruby
+    # 差 - 四个空格
+    def some_method
+        do_something
+    end
+
+    # 好
+    def some_method
+      do_something
+    end
+    ```
+
+* 使用 Unix 风格的行编码(BSD/Solaris/Linux/OSX 的用户不用担心，Windows 用户要格外小心。)
+    * 如果你使用 Git ，你也许会想加入下面这个配置，来保护你的项目不被 Windows 的行编码侵入：
+
+      ```bash
+      $ git config --global core.autocrlf true
+      ```
+
+* 不要使用`;`来隔开语句和表达式。推论 - 每一行使用一条语句。
+
+    ```Ruby
+    # 差
+    puts 'foobar'; # 不必要的分号
+
+    puts 'foo'; puts 'bar' # 同一行里有两个表达式
+
+    # 好
+    puts 'foobar'
+
+    puts 'foo'
+    puts 'bar'
+
+    puts 'foo', 'bar' # 特别的，这个适用于puts
+    ```
+
+* 对于没有成员的类，尽可能使用单行类定义。
+
+    ```Ruby
+    # 差
+    class FooError < StandardError
+    end
+
+    # 好
+    class FooError < StandardError; end
+    ```
+
+* 避免使用单行方法。尽管它们在圈子里有那么一点点流行，但是它们的定义语法有一些诡异的特性导致使用它们时并不尽如人意。无论如何 - 一个单行方法里的表达式不应该多于 1 个。
+
+    ```Ruby
+    # 差
+    def too_much; something; something_else; end
+
+    # 勉强可以 - 注意第一个 ; 是必需的
+    def no_braces_method; body end
+
+    # 勉强可以 - 注意第二个 ; 是可选的
+    def no_braces_method; body; end
+
+    # 勉强可以 - 语法上正确，但是没有 ; 让它有些难读
+    def some_method() body end
+
+    # 好
+    def some_method
+      body
+    end
+    ```
+
+    这个规则的一个例外是空方法。
+
+    ```Ruby
+    # 好
+    def no_op; end
+    ```
+
+* 使用空格来围绕操作符，逗号 `,` 、冒号 `:` 及分号 `;` 之后，围绕在 `{` 和 `}` 之前。
+  空格可能对（大部分）Ruby 直译器来说是无关紧要的，但正确的使用是写出可读性高的代码的关键。
+
+    ```Ruby
+    sum = 1 + 2
+    a, b = 1, 2
+    1 > 2 ? true : false; puts 'Hi'
+    [1, 2, 3].each { |e| puts e }
+    ```
+    （针对操作符）唯一的例外是当使用指数操作符时：
+
+    ```Ruby
+    # 差
+    e = M * c ** 2
+
+    # 好
+    e = M * c**2
+    ```
+
+    `{` 和 `}` 需要额外说明，因为他们是用在块（block）、
+    哈希字面量（hash literals），以及嵌入字符串的表达式中。
+    对于哈希字面量来说，两种风格都是可接受的。
+
+    ```Ruby
+    # 好 - { 之后和 }之前有空格
+    { one: 1, two: 2 }
+
+    # 好 - { 之后和 }之前没有空格
+    {one: 1, two: 2}
+    ```
+
+    第一个种风格稍微更具可读性（而且有争议的是，一般在Ruby社区里更受欢迎）。
+    第二种风格具有可为块和哈希字面量添加可视化的差别的优点。
+    无论你选哪一种都行 - 但是最好保持一致。
+
+    至于嵌入表达式（embedded expressions），这儿也有两个可接受的选择：
+
+    ```Ruby
+    # 好 - 没有空格
+    "string#{expr}"
+
+    # 可以 - 更具可读性（有些争议）
+    "string#{ expr }"
+    ```
+
+    第一种风格极为流行，一般其他人都会建议你坚持这种风格。
+    另一方面来说，第二种风格有些更具可读性（虽然颇具争议）。
+    正如哈系那样 - 选一种风格并且保持一致。
+
+* 不要有空格在 `(` 、 `[` 之后，或 `]` 、 `)` 之前。
+
+    ```Ruby
+    some(arg).other
+    [1, 2, 3].length
+    ```
+* 把 `when` 跟 `case` 缩排在同一层。我知道很多人不同意这一点，但这是 "The Ruby Programming Language" 及 "Programming Ruby" 所使用的风格。
+
+    ```Ruby
+    case
+    when song.name == 'Misty'
+      puts 'Not again!'
+    when song.duration > 120
+      puts 'Too long!'
+    when Time.now.hour > 21
+      puts "It's too late"
+    else
+      song.play
+    end
+
+    kind = case year
+           when 1850..1889 then 'Blues'
+           when 1890..1909 then 'Ragtime'
+           when 1910..1929 then 'New Orleans Jazz'
+           when 1930..1939 then 'Swing'
+           when 1940..1950 then 'Bebop'
+           else 'Jazz'
+           end
+    ```
+
+* 在 `def` 之间使用空行，并且把方法分成合乎逻辑的段落。
+
+    ```Ruby
+    def some_method
+      data = initialize(options)
+
+      data.manipulate!
+
+      data.result
+    end
+
+    def some_method
+      result
+    end
+    ```
+
+* 当给方法的参数赋默认值时，在 `=` 两边使用空格：
+
+    ```Ruby
+    # 差
+    def some_method(arg1=:default, arg2=nil, arg3=[])
+      # 做一些任务...
+    end
+
+    # 好
+    def some_method(arg1 = :default, arg2 = nil, arg3 = [])
+      # 做一些任务...
+    end
+    ```
+
+    虽然几本 Ruby 书建议用第一个风格，不过第二个风格在实践中更为常见（并可争议地可读性更高一点）。
+
+* 避免在不需要的时候使用行继续符 (\\) 。实际编码时，尽力避免使用行继续符。
+
+    ```Ruby
+    # 差
+    result = 1 - \
+             2
+
+    # 好 (但是仍然丑到爆)
+    result = 1 \
+             - 2
+    ```
+
+* 当一个链式方法调用需要在另一行继续时，将 `.` 放在第二行
+
+    ```Ruby
+    # 差 - 为了理解第二行需要去查阅第一行
+    one.two.three.
+      four
+
+    # 好 - 第二行在做什么立刻变得很清晰
+    one.two.three
+      .four
+    ```
+
+* 当一个方法呼叫的参数扩展超过一行时，排列它们。
+
+    ```Ruby
+    # 一开始（一行太长）
+    def send_mail(source)
+      Mailer.deliver(to: 'bob@example.com', from: 'us@example.com', subject: 'Important message', body: source.text)
+    end
+
+    # 差（一般的缩排）
+    def send_mail(source)
+      Mailer.deliver(
+        to: 'bob@example.com',
+        from: 'us@example.com',
+        subject: 'Important message',
+        body: source.text)
+    end
+
+    # 差（两倍缩排）
+    def send_mail(source)
+      Mailer.deliver(
+          to: 'bob@example.com',
+          from: 'us@example.com',
+          subject: 'Important message',
+          body: source.text)
+    end
+
+    # 好
+    def send_mail(source)
+      Mailer.deliver(to: 'bob@example.com',
+                     from: 'us@example.com',
+                     subject: 'Important message',
+                     body: source.text)
+    end
+    ```
+* 长的常量数字添加下划线来改善可读性
+
+    ```Ruby
+    # 差 - 有几个零？
+    num = 1000000
+
+    # 好 - 更容易被人脑解析。
+    num = 1_000_000
+    ```
+
+* 使用 RDoc 以及它的惯例来撰写 API 文档。不要在注解区块及 `def` 之前放一个空行。
+* 将每一行最多限制在 80 个字符。
+* 避免尾随的空白。
+* 不要使用区块注释。它们不能由空白引导，并且不如普通注释容易辨认。
+
+    ```Ruby
+    # 差
+    == begin
+    一行注释
+    另一行注释
+    == end
+
+    # 好
+    # 一行注释
+    # 另一行注释
+    ```
+
+## 语法
+
+* 使用 `::` 只能引用常量（包括类和模块）。永远不要使用 `::` 来调用方法。
+
+    ```Ruby
+    # 差
+    SomeClass::some_method
+    some_object::some_method
+
+    # 好
+    SomeClass.some_method
+    some_object.some_method
+    SomeModule::SomeClass::SOME_CONST
+    ```
+
+* 使用 `def` 时，当有参数时使用括号。当方法不接受任何参数时，省略括号。
+
+     ```Ruby
+     def some_method
+       # 此处省略方法体
+     end
+
+     def some_method_with_arguments(arg1, arg2)
+       # 此处省略方法体
+     end
+     ```
+
+* 永远不要使用 `for` ，除非你很清楚为什么。大部分情况应该使用迭代器来取代。 `for` 是由 `each` 所实现的（所以你加入了一层的迂回），但出乎意料的是 — `for` 并没有包含一个新的作用域(不像是 `each` ）而在这个区块中定义的变量将会被外部所看到。
+
+    ```Ruby
+    arr = [1, 2, 3]
+
+    # 差
+    for elem in arr do
+      puts elem
+    end
+
+    # 好
+    arr.each { |elem| puts elem }
+    ```
+
+* 永远不要在多行的 `if/unless` 使用 `then`
+
+    ```Ruby
+    # 差
+    if some_condition then
+      # 此处省略语句体
+    end
+
+    # 好
+    if some_condition
+      # 此处省略语句体
+    end
+    ```
+
+* 倾向使用三元操作符 `? : ` 而不是 `if/then/else/end` 结构，它更为常见及更精准。
+
+    ```Ruby
+    # 差
+    result = if some_condition then something else something_else end
+
+    # 好
+    result = some_condition ? something : something_else
+    ```
+* 使用一个表达式给一个三元操作符的分支。这也意味着三元操作符不要嵌套。嵌套情况使用 `if/else` 结构。
+
+    ```Ruby
+    # 差
+    some_condition ? (nested_condition ? nested_something : nested_something_else) : something_else
+
+    # 好
+    if some_condition
+      nested_condition ? nested_something : nested_something_else
+    else
+      something_else
+    end
+    ```
+* 永远不要使用 `if x: ...` — 它已经在 Ruby 1.9 被移除了。使用三元操作符来取代。
+
+    ```Ruby
+    # 差
+    result = if some_condition: something else something_else end
+
+    # 好
+    result = some_condition ? something : something_else
+    ```
+* 永远不要使用 `if x: ...` 使用三元操作符来取代。
+
+* 一行的情况使用 `when x then ...`。替代方案的语法 `when x: ...` 已经在 Ruby 1.9 被移除了。
+
+* 永远不要使用 `when x: ...`。参考前一个规则。
+
+* 使用 `!` 替代 `not`.
+
+    ```Ruby
+    # 差 - 因为操作符有优先级，需要用括号。
+    x = (not something)
+
+    # 好
+    x = !something
+    ```
+
+* 布尔表达式使用 `&&/||`，控制流程使用 `and/or`。 （经验法则：如果你需要使用外部括号，你正在使用错误的操作符。）
+
+    ```Ruby
+    # 布尔表达式
+    if some_condition && some_other_condition
+      do_something
+    end
+
+    # 控制流程
+    document.saved? or document.save!
+    ```
+* 避免多行的 `? : `（三元操作符）；使用 `if/unless` 来取代。
+
+* 偏爱 `if/unless` 修饰符当你有单行的主体。另一个好的方法是使用控制流程的 `and/or`。
+
+    ```Ruby
+    # 差
+    if some_condition
+      do_something
+    end
+
+    # 好
+    do_something if some_condition
+
+    # 另一个好方法
+    some_condition and do_something
+    ```
+
+* 否定条件偏爱 `unless` 优于 `if`（或是控制流程 `or`）。
+
+    ```Ruby
+    # 差
+    do_something if !some_condition
+
+    # 好
+    do_something unless some_condition
+
+    # 另一个好方法
+    some_condition or do_something
+    ```
+* 永远不要使用 `unless` 搭配 `else` 。将它们改写成肯定条件。
+
+    ```Ruby
+    # 差
+    unless success?
+      puts 'failure'
+    else
+      puts 'success'
+    end
+
+    # 好
+    if success?
+      puts 'success'
+    else
+      puts 'failure'
+    end
+    ```
+* 不要使用括号围绕 `if/unless/while` 的条件式，除非这条件包含了一个赋值（见下面使用 `=` （一个赋值）的返回值）。
+
+    ```Ruby
+    # 差
+    if (x > 10)
+      # 此处省略语句体
+    end
+
+    # 好
+    if x > 10
+      # 此处省略语句体
+    end
+
+    # 好
+    if (x = self.next_value)
+      # 此处省略语句体
+    end
+    ```
+
+* 当你有单行主体时，偏爱使用 `while/until` 修饰符。
+
+    ```Ruby
+    # 差
+    while some_condition
+      do_something
+    end
+
+    # 好
+    do_something while some_condition
+    ```
+
+* 负面条件倾向使用 `until` 而不是 `while` 。
+
+    ```Ruby
+    # 差
+    do_something while !some_condition
+
+    # 好
+    do_something until some_condition
+    ```
+
+* 为循环后测试使用 Kernel#loop 搭配 break 而不是 `begin/end/until` 或者 `begin/end/while`。
+
+   ```Ruby
+   # 差
+   begin
+     puts val
+     val += 1
+   end while val < 0
+
+   # 好
+   loop do
+     puts val
+     val += 1
+     break unless val < 0
+   end
+   ```
+
+* 忽略围绕方法参数的括号，如内部 DSL (如：Rake, Rails, RSpec)，Ruby 中带有 "关键字" 状态的方法（如：`attr_reader`, `puts`）以及属性存取方法。所有其他的方法呼叫使用括号围绕参数。
+
+    ```Ruby
+    class Person
+      attr_reader :name, :age
+
+      # 忽略
+    end
+
+    temperance = Person.new('Temperance', 30)
+    temperance.name
+
+    puts temperance.age
+
+    x = Math.sin(y)
+    array.delete(e)
+    ```
+
+* 单行区块倾向使用 `{...}` 而不是 `do..end`。多行区块避免使用 `{...}`（多行串连总是
