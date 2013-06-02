@@ -2,7 +2,9 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://xuefu.github.io title: xuefu.sh - blog subtitle: to be happy for coding
+url: http://xuefu.github.io 
+title: xuefu.sh - blog 
+subtitle: to be happy for coding
 author: xuefu
 simple_search: http://google.com/search
 description:
