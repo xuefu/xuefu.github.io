@@ -55,8 +55,9 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 # Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
 # and add an array with the asides you want to use.
 # blog_index_asides:
-# post_asides:
-# page_asides:
+post_asides: [asides/about.html, asides/douban.html, asides/recent_posts.html]
+#page_asides:
+page_asides: [asides/about.html, asides/douban.html, asides/recent_posts.html]
 
 # ----------------------- #
 #   3rd Party Settings    #
@@ -90,11 +91,17 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
-disqus_show_comment_count: false
+disqus_short_name: xuefu_zhang 
+disqus_show_comment_count: true 
 
 # Google Analytics
 google_analytics_tracking_id:
 
 # Facebook Like
 facebook_like: false
+
+#Douban
+douban_user: zhangxuefu 
+
+#bshare
+bshare: true
