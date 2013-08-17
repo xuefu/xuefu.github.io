@@ -4,7 +4,7 @@
   <title><![CDATA[樱空释]]></title>
   <link href="http://xuefu.github.io/atom.xml" rel="self"/>
   <link href="http://xuefu.github.io/"/>
-  <updated>2013-07-07T22:01:57+08:00</updated>
+  <updated>2013-08-17T11:13:24+08:00</updated>
   <id>http://xuefu.github.io/</id>
   <author>
     <name><![CDATA[xuefu]]></name>
@@ -12,6 +12,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Heroku Push Timeout 错误]]></title>
+    <link href="http://xuefu.github.io/blog/2013/08/17/herokupushtimeout/"/>
+    <updated>2013-08-17T11:02:00+08:00</updated>
+    <id>http://xuefu.github.io/blog/2013/08/17/herokupushtimeout</id>
+    <content type="html"><![CDATA[<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">$git push heroku
+</span><span class="line">#ssh: connect to host heroku.com port 22: Operation timed out
+</span><span class="line">#fatal: the remote end hung up unexpectedly
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>From <a href="http://ruby-china.org/topics/10813"><em>ruby-china</em></a></p>
+
+<p>See Also <a href="http://www.flyuphigh.com/Trivial/heroku+push+timeout%E9%94%99%E8%AF%AF.html"><em>flyuphigh</em></a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[a bird]]></title>
