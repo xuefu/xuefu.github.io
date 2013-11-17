@@ -5,16 +5,17 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Heroku Push Timeout 错误 - 樱空释</title>
+  <title>深入理解计算机系统读书笔记(11) - 樱空释</title>
   <meta name="author" content="xuefu">
 
   
-  <meta name="description" content="1
+  <meta name="description" content="IP地址结构 1
 2
 3
-$git push heroku
-#ssh: connect to host heroku.com port 22: Operation timed out
-#fatal: the remote end hung up unexpectedly From ruby-china See &hellip;">
+4
+/* Internet address structure */
+struct in_addr { unsigned int s_addr; /* Network byte order (big endian) */
+}; ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -23,7 +24,7 @@ $git push heroku
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://xuefu.github.io/blog/2013/08/17/herokupushtimeout">
+  <link rel="canonical" href="http://xuefu.github.io/blog/2013/11/17/shen-ru-li-jie-ji-suan-ji-xi-tong-du-shu-bi-ji-11">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="樱空释" type="application/atom+xml">
@@ -85,7 +86,7 @@ $git push heroku
   
   <header>
     
-      <h1 class="entry-title">Heroku Push Timeout 错误</h1>
+      <h1 class="entry-title">深入理解计算机系统读书笔记(11)</h1>
     
     
       <p class="meta">
@@ -101,23 +102,24 @@ $git push heroku
   
 
 
-<time datetime="2013-08-17T11:02:00+08:00" pubdate data-updated="true">Aug 17<span>th</span>, 2013</time>
+<time datetime="2013-11-17T17:13:00+08:00" pubdate data-updated="true">Nov 17<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<div class="entry-content"><h2 id="ip">IP地址结构</h2>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">$git push heroku
-</span><span class="line">#ssh: connect to host heroku.com port 22: Operation timed out
-</span><span class="line">#fatal: the remote end hung up unexpectedly
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">/* Internet address structure */
+</span><span class="line">struct in_addr {
+</span><span class="line">  unsigned int s_addr; /* Network byte order (big endian) */
+</span><span class="line">};
 </span></code></pre></td></tr></table></div></figure></notextile></div>
-<p>From <a href="http://ruby-china.org/topics/10813"><em>ruby-china</em></a></p>
-
-<p>See Also <a href="http://www.flyuphigh.com/Trivial/heroku+push+timeout%E9%94%99%E8%AF%AF.html"><em>flyuphigh</em></a></p>
 </div>
 
 
@@ -140,7 +142,7 @@ $git push heroku
   
 
 
-<time datetime="2013-08-17T11:02:00+08:00" pubdate data-updated="true">Aug 17<span>th</span>, 2013</time>
+<time datetime="2013-11-17T17:13:00+08:00" pubdate data-updated="true">Nov 17<span>th</span>, 2013</time>
       
 
 
@@ -151,15 +153,6 @@ $git push heroku
   
   
 </div>
-
-
-<div class="bshare-custom icon-medium"><a title="分享到" href="http://www.bShare.cn/" id="bshare-shareto" class="bshare-more">分享到</a>
-<a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
-<a title="分享到人人网" class="bshare-renren"></a>
-<a title="分享到Twitter" class="bshare-twitter"></a>
-<a title="分享到豆瓣网" class="bshare-douban"></a>
-<a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
-<span class="BSHARE_COUNT bshare-share-count">0</span></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
 
     
     <p class="meta">
@@ -193,7 +186,7 @@ $git push heroku
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2013/08/17/herokupushtimeout/">Heroku Push Timeout 错误</a>
+        <a href="/blog/2013/11/17/shen-ru-li-jie-ji-suan-ji-xi-tong-du-shu-bi-ji-11/">深入理解计算机系统读书笔记(11)</a>
       </li>
     
       <li class="post">
@@ -226,8 +219,8 @@ $git push heroku
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://xuefu.github.io/blog/2013/08/17/herokupushtimeout/';
-        var disqus_url = 'http://xuefu.github.io/blog/2013/08/17/herokupushtimeout/';
+        var disqus_identifier = 'http://xuefu.github.io/blog/2013/11/17/shen-ru-li-jie-ji-suan-ji-xi-tong-du-shu-bi-ji-11/';
+        var disqus_url = 'http://xuefu.github.io/blog/2013/11/17/shen-ru-li-jie-ji-suan-ji-xi-tong-du-shu-bi-ji-11/';
         var disqus_script = 'embed.js';
       
     (function () {

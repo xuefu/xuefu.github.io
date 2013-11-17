@@ -9,12 +9,13 @@
   <meta name="author" content="xuefu">
 
   
-  <meta name="description" content="1
+  <meta name="description" content="IP地址结构 1
 2
 3
-$git push heroku
-#ssh: connect to host heroku.com port 22: Operation timed out
-#fatal: the remote end hung up unexpectedly From ruby-china See &hellip;">
+4
+/* Internet address structure */
+struct in_addr { unsigned int s_addr; /* Network byte order (big endian) */
+}; ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -88,7 +89,7 @@ $git push heroku
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/08/17/herokupushtimeout/">Heroku Push Timeout 错误</a></h1>
+      <h1 class="entry-title"><a href="/blog/2013/11/17/shen-ru-li-jie-ji-suan-ji-xi-tong-du-shu-bi-ji-11/">深入理解计算机系统读书笔记(11)</a></h1>
     
     
       <p class="meta">
@@ -104,23 +105,24 @@ $git push heroku
   
 
 
-<time datetime="2013-08-17T11:02:00+08:00" pubdate data-updated="true">Aug 17<span>th</span>, 2013</time>
+<time datetime="2013-11-17T17:13:00+08:00" pubdate data-updated="true">Nov 17<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+  <div class="entry-content"><h2 id="ip">IP地址结构</h2>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">$git push heroku
-</span><span class="line">#ssh: connect to host heroku.com port 22: Operation timed out
-</span><span class="line">#fatal: the remote end hung up unexpectedly
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">/* Internet address structure */
+</span><span class="line">struct in_addr {
+</span><span class="line">  unsigned int s_addr; /* Network byte order (big endian) */
+</span><span class="line">};
 </span></code></pre></td></tr></table></div></figure></notextile></div>
-<p>From <a href="http://ruby-china.org/topics/10813"><em>ruby-china</em></a></p>
-
-<p>See Also <a href="http://www.flyuphigh.com/Trivial/heroku+push+timeout%E9%94%99%E8%AF%AF.html"><em>flyuphigh</em></a></p>
 </div>
   
   
@@ -186,7 +188,7 @@ $git push heroku
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2013/08/17/herokupushtimeout/">Heroku Push Timeout 错误</a>
+        <a href="/blog/2013/11/17/shen-ru-li-jie-ji-suan-ji-xi-tong-du-shu-bi-ji-11/">深入理解计算机系统读书笔记(11)</a>
       </li>
     
       <li class="post">
