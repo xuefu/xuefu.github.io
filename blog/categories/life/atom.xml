@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Life | 樱空释]]></title>
+  <link href="http://xuefu.github.io/blog/categories/life/atom.xml" rel="self"/>
+  <link href="http://xuefu.github.io/"/>
+  <updated>2013-11-17T17:41:17+08:00</updated>
+  <id>http://xuefu.github.io/</id>
+  <author>
+    <name><![CDATA[xuefu]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[a bird]]></title>
+    <link href="http://xuefu.github.io/blog/2013/06/02/a-bird/"/>
+    <updated>2013-06-02T14:22:00+08:00</updated>
+    <id>http://xuefu.github.io/blog/2013/06/02/a-bird</id>
+    <content type="html"><![CDATA[<h1 id="i-am-a-little-bird-">I am a little bird !</h1>
+
+<p>所谓的幸福，就是痛并快乐着！</p>
+]]></content>
+  </entry>
+  
+</feed>
