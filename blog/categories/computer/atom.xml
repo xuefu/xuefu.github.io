@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Computer | 樱空释]]></title>
   <link href="http://xuefu.github.io/blog/categories/computer/atom.xml" rel="self"/>
   <link href="http://xuefu.github.io/"/>
-  <updated>2013-11-17T17:41:17+08:00</updated>
+  <updated>2013-11-17T17:47:26+08:00</updated>
   <id>http://xuefu.github.io/</id>
   <author>
     <name><![CDATA[xuefu]]></name>
@@ -18,17 +18,18 @@
     <link href="http://xuefu.github.io/blog/2013/11/17/shen-ru-li-jie-ji-suan-ji-xi-tong-du-shu-bi-ji-11/"/>
     <updated>2013-11-17T17:13:00+08:00</updated>
     <id>http://xuefu.github.io/blog/2013/11/17/shen-ru-li-jie-ji-suan-ji-xi-tong-du-shu-bi-ji-11</id>
-    <content type="html"><![CDATA[<h3 id="ip">IP地址结构</h3>
+    <content type="html"><![CDATA[<h3 id="section">网络编程</h3>
 
 <p>```
-/* Internet address structure <em>/
+/* IP地址结构 
+ * Internet address structure <em>/
 struct in_addr {
   unsigned int s_addr; /</em> Network byte order (big endian) */
 };</p>
 
 <p>```</p>
 
-<p>我们知道，现今大多数的物理主机存储数据的字节顺序都是小端法(即低字节存于低地址)，然而，由于因特网主机可以有不同的主机字节顺序，TCP/IP为任意整数数据项定义了统一的<em>网络字节顺序</em>(大端字节顺序)。因此，在IP地址结构中存放的地址总是以(大端法)<em>网络字节顺序</em>存放的。Unix提供了下面这样的函数在网络和主机字节顺序间实现转换:</p>
+<p>我们知道，现今大多数的物理主机存储数据的字节顺序都是小端法(即低字节存于低地址)，然而，由于因特网主机可以有不同的主机字节顺序，TCP/IP为任意整数数据项定义了统一的<strong>网络字节顺序</strong>(大端字节顺序)。因此，在IP地址结构中存放的地址总是以(大端法)<strong>网络字节顺序</strong>存放的。Unix提供了下面这样的函数在网络和主机字节顺序间实现转换:</p>
 
 <p>```
 #include &lt;netinet/in.h&gt;</p>
