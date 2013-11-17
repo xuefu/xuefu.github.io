@@ -4,7 +4,7 @@
   <title><![CDATA[樱空释]]></title>
   <link href="http://xuefu.github.io/atom.xml" rel="self"/>
   <link href="http://xuefu.github.io/"/>
-  <updated>2013-11-17T17:18:00+08:00</updated>
+  <updated>2013-11-17T17:30:52+08:00</updated>
   <id>http://xuefu.github.io/</id>
   <author>
     <name><![CDATA[xuefu]]></name>
@@ -18,7 +18,7 @@
     <link href="http://xuefu.github.io/blog/2013/11/17/shen-ru-li-jie-ji-suan-ji-xi-tong-du-shu-bi-ji-11/"/>
     <updated>2013-11-17T17:13:00+08:00</updated>
     <id>http://xuefu.github.io/blog/2013/11/17/shen-ru-li-jie-ji-suan-ji-xi-tong-du-shu-bi-ji-11</id>
-    <content type="html"><![CDATA[<h2 id="ip">IP地址结构</h2>
+    <content type="html"><![CDATA[<h3 id="ip">IP地址结构</h3>
 
 <div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
@@ -29,6 +29,25 @@
 </span><span class="line">  unsigned int s_addr; /* Network byte order (big endian) */
 </span><span class="line">};
 </span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>我们知道，现今大多数的物理主机存储数据的字节顺序都是小端法(即低字节存于低地址)，然而，由于因特网主机可以有不同的主机字节顺序，TCP/IP为任意整数数据项定义了统一的<em>网络字节顺序</em>(大端字节顺序)。因此，在IP地址结构中存放的地址总是以(大端法)<em>网络字节顺序</em>存放的。Unix提供了下面这样的函数在网络和主机字节顺序间实现转换:
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">#include &lt;netinet/in.h&gt;
+</span><span class="line">
+</span><span class="line">unsigned long int htonl(unsigned long int hostlong);
+</span><span class="line">unsigned short int htonl(unsigned short int hostshort);
+</span><span class="line">                                                       *返回：按照网络字节顺序的值*
+</span><span class="line">unsigned long int ntohl(unsigned long int netlong);
+</span><span class="line">unsigned short int ntohl(unsigned short int netshort);
+</span><span class="line">                                                       *返回：按照主机字节顺序的值*
+</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
 ]]></content>
   </entry>
   
