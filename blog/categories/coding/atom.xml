@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: coding | 樱空释]]></title>
+  <link href="http://xuefu.github.io/blog/categories/coding/atom.xml" rel="self"/>
+  <link href="http://xuefu.github.io/"/>
+  <updated>2013-11-18T22:37:00+08:00</updated>
+  <id>http://xuefu.github.io/</id>
+  <author>
+    <name><![CDATA[xuefu]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Markdown语法简明]]></title>
+    <link href="http://xuefu.github.io/blog/2013/11/18/markdownyu-fa-jian-ming/"/>
+    <updated>2013-11-18T18:10:00+08:00</updated>
+    <id>http://xuefu.github.io/blog/2013/11/18/markdownyu-fa-jian-ming</id>
+    <content type="html"><![CDATA[<h3 id="section">标题</h3>
+
+<p>```
+# 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题</p>
+
+<p>```</p>
+
+<h3 id="blockquotes">区块引用Blockquotes</h3>
+
+<p>```
+&gt; This is a blockquote.
+&gt; This is a blockquote.
+&gt; This is a blockquote.
+&gt; This is a blockquote.
+&gt; This is a blockquote.
+&gt; This is a blockquote.</p>
+
+<p>```</p>
+
+<h3 id="section-1">列表</h3>
+
+<h4 id="section-2">无序列表</h4>
+
+<p>```
+* Red
+* Green
+* Blue</p>
+
+<p>```</p>
+
+<h4 id="section-3">有序列表</h4>
+
+<p>```
+1. Red
+2. Green
+3. Blue</p>
+
+<p>```</p>
+
+<h3 id="section-4">分隔线</h3>
+
+<p>```
+***
+—
+___</p>
+
+<p>```</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -4,7 +4,7 @@
   <title><![CDATA[樱空释]]></title>
   <link href="http://xuefu.github.io/atom.xml" rel="self"/>
   <link href="http://xuefu.github.io/"/>
-  <updated>2013-11-18T00:34:26+08:00</updated>
+  <updated>2013-11-18T22:37:00+08:00</updated>
   <id>http://xuefu.github.io/</id>
   <author>
     <name><![CDATA[xuefu]]></name>
@@ -12,6 +12,77 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Markdown语法简明]]></title>
+    <link href="http://xuefu.github.io/blog/2013/11/18/markdownyu-fa-jian-ming/"/>
+    <updated>2013-11-18T18:10:00+08:00</updated>
+    <id>http://xuefu.github.io/blog/2013/11/18/markdownyu-fa-jian-ming</id>
+    <content type="html"><![CDATA[<h3 id="section">标题</h3>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+</pre></td><td class="code"><pre><code class=""><span class="line"># 一级标题
+</span><span class="line">## 二级标题
+</span><span class="line">### 三级标题
+</span><span class="line">#### 四级标题
+</span><span class="line">##### 五级标题
+</span><span class="line">###### 六级标题
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h3 id="blockquotes">区块引用Blockquotes</h3>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">&gt; This is a blockquote.
+</span><span class="line">&gt; This is a blockquote.
+</span><span class="line">&gt; This is a blockquote.
+</span><span class="line">&gt; This is a blockquote.
+</span><span class="line">&gt; This is a blockquote.
+</span><span class="line">&gt; This is a blockquote.
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h3 id="section-1">列表</h3>
+
+<h4 id="section-2">无序列表</h4>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">* Red
+</span><span class="line">* Green
+</span><span class="line">* Blue
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h4 id="section-3">有序列表</h4>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">1. Red
+</span><span class="line">2. Green
+</span><span class="line">3. Blue
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h3 id="section-4">分隔线</h3>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">***
+</span><span class="line">---
+</span><span class="line">___
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[深入理解计算机系统读书笔记(11)]]></title>
