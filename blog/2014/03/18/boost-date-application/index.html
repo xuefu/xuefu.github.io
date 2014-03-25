@@ -5,29 +5,61 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Markdown语法简明 - 樱空释</title>
+  <title>一些关于日期的实用例子(Boost) - 樱空释</title>
   <meta name="author" content="xuefu">
 
   
-  <meta name="description" content="标题 1
+  <meta name="description" content="显示月历 1
 2
 3
 4
 5
 6
-# 一级标题
-## 二级标题
-### 三级标题
-#### 四级标题
-##### 五级标题
-###### 六级标题 区块引用Blockquotes 1
-2
-3
-4
-5
-6
-&gt; This is a blockquote.
-&gt; This is a &hellip;">
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -36,8 +68,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://xuefu.github.io/blog/2013/11/18/markdownyu-fa-jian-ming">
-  <link href="/heart_empty.png" rel="icon">
+  <link rel="canonical" href="http://xuefu.github.io/blog/2014/03/18/boost-date-application">
+  <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="樱空释" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -88,8 +120,6 @@
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
-  <li><a href="/about">About</a></li>
-  <li><a href="/blog-link">Link</a></li>
 </ul>
 
 </nav>
@@ -100,7 +130,7 @@
   
   <header>
     
-      <h1 class="entry-title">Markdown语法简明</h1>
+      <h1 class="entry-title">一些关于日期的实用例子(Boost)</h1>
     
     
       <p class="meta">
@@ -116,14 +146,14 @@
   
 
 
-<time datetime="2013-11-18T18:10:00+08:00" pubdate data-updated="true">Nov 18<span>th</span>, 2013</time>
+<time datetime="2014-03-18T13:23:00+08:00" pubdate data-updated="true">Mar 18<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><h3 id="section">标题</h3>
+<div class="entry-content"><h3 id="section">显示月历</h3>
 
 <div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
@@ -131,60 +161,128 @@
 <span class="line-number">4</span>
 <span class="line-number">5</span>
 <span class="line-number">6</span>
-</pre></td><td class="code"><pre><code class=""><span class="line"># 一级标题
-</span><span class="line">## 二级标题
-</span><span class="line">### 三级标题
-</span><span class="line">#### 四级标题
-</span><span class="line">##### 五级标题
-</span><span class="line">###### 六级标题
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+<span class="line-number">20</span>
+<span class="line-number">21</span>
+<span class="line-number">22</span>
+<span class="line-number">23</span>
+<span class="line-number">24</span>
+<span class="line-number">25</span>
+<span class="line-number">26</span>
+<span class="line-number">27</span>
+<span class="line-number">28</span>
+<span class="line-number">29</span>
+<span class="line-number">30</span>
+<span class="line-number">31</span>
+<span class="line-number">32</span>
+<span class="line-number">33</span>
+<span class="line-number">34</span>
+<span class="line-number">35</span>
+<span class="line-number">36</span>
+<span class="line-number">37</span>
+<span class="line-number">38</span>
+<span class="line-number">39</span>
+<span class="line-number">40</span>
+<span class="line-number">41</span>
+<span class="line-number">42</span>
+<span class="line-number">43</span>
+<span class="line-number">44</span>
+<span class="line-number">45</span>
+<span class="line-number">46</span>
+<span class="line-number">47</span>
+<span class="line-number">48</span>
+<span class="line-number">49</span>
+<span class="line-number">50</span>
+<span class="line-number">51</span>
+<span class="line-number">52</span>
+<span class="line-number">53</span>
+<span class="line-number">54</span>
+<span class="line-number">55</span>
+<span class="line-number">56</span>
+<span class="line-number">57</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">//standard headers
+</span><span class="line">#include &lt;string&gt;
+</span><span class="line">#include &lt;iostream&gt;
+</span><span class="line">#include &lt;vector&gt;
+</span><span class="line">#include &lt;set&gt;
+</span><span class="line">#include &lt;map&gt;
+</span><span class="line">#include &lt;algorithm&gt;
+</span><span class="line">using namespace std;
+</span><span class="line">
+</span><span class="line">#include &lt;boost/date_time/gregorian/gregorian.hpp&gt;
+</span><span class="line">using namespace boost::gregorian;
+</span><span class="line">
+</span><span class="line">int main(int argc, char *argv[])
+</span><span class="line">{
+</span><span class="line">  int i;
+</span><span class="line">  int year, month, day;
+</span><span class="line">
+</span><span class="line">  cout &lt;&lt; "Please input the year: " &lt;&lt; endl;
+</span><span class="line">  cin &gt;&gt; year;
+</span><span class="line">  cout &lt;&lt; "Please input the month: " &lt;&lt; endl;
+</span><span class="line">  cin &gt;&gt; month;
+</span><span class="line">  cout &lt;&lt; "Please input the day: " &lt;&lt; endl;
+</span><span class="line">  cin &gt;&gt; day;
+</span><span class="line">
+</span><span class="line">  date d(year, month, day);
+</span><span class="line">  date d_start(d.year(), d.month(), 1);
+</span><span class="line">  date d_end = d.end_of_month() + days(1);
+</span><span class="line">
+</span><span class="line">  cout &lt;&lt; "Sun" &lt;&lt; "\t" &lt;&lt; "Mon" &lt;&lt; "\t" &lt;&lt; "Tue" &lt;&lt; "\t"
+</span><span class="line">    &lt;&lt; "Web" &lt;&lt; "\t" &lt;&lt; "Thu" &lt;&lt; "\t" &lt;&lt;  "Fri" &lt;&lt; "\t" 
+</span><span class="line">    &lt;&lt; "Sat" &lt;&lt; endl;
+</span><span class="line">
+</span><span class="line">  int w_start = d_start.day_of_week();
+</span><span class="line">
+</span><span class="line">  for (i = 0; i &lt; w_start; i++) {
+</span><span class="line">    cout &lt;&lt; "   " &lt;&lt; "\t";
+</span><span class="line">  }
+</span><span class="line">
+</span><span class="line">  if (w_start == 6) {
+</span><span class="line">    cout &lt;&lt; d_start.day() &lt;&lt; endl;
+</span><span class="line">  } else {
+</span><span class="line">    cout &lt;&lt; d_start.day() &lt;&lt; "\t";
+</span><span class="line">  }
+</span><span class="line">
+</span><span class="line">  day_iterator d_iter(d_start + days(1));
+</span><span class="line">
+</span><span class="line">  for(; d_iter != d_end; ++d_iter)
+</span><span class="line">  {
+</span><span class="line">    if(d_iter-&gt;day_of_week() != 6)
+</span><span class="line">      cout &lt;&lt; d_iter-&gt;day() &lt;&lt; "\t";
+</span><span class="line">    else
+</span><span class="line">      cout &lt;&lt; d_iter-&gt;day() &lt;&lt; endl;
+</span><span class="line">
+</span><span class="line">  }
+</span><span class="line">  cout &lt;&lt; endl;
+</span><span class="line">
+</span><span class="line">}
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<h3 id="blockquotes">区块引用Blockquotes</h3>
+<h3 id="section-1">计算一个人的十八岁生日是星期几</h3>
 
 <div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
 <span class="line-number">2</span>
 <span class="line-number">3</span>
 <span class="line-number">4</span>
 <span class="line-number">5</span>
-<span class="line-number">6</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">&gt; This is a blockquote.
-</span><span class="line">&gt; This is a blockquote.
-</span><span class="line">&gt; This is a blockquote.
-</span><span class="line">&gt; This is a blockquote.
-</span><span class="line">&gt; This is a blockquote.
-</span><span class="line">&gt; This is a blockquote.
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h3 id="section-1">列表</h3>
-
-<h4 id="section-2">无序列表</h4>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">* Red
-</span><span class="line">* Green
-</span><span class="line">* Blue
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h4 id="section-3">有序列表</h4>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">1. Red
-</span><span class="line">2. Green
-</span><span class="line">3. Blue
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h3 id="section-4">分隔线</h3>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">***
-</span><span class="line">---
-</span><span class="line">___
+</pre></td><td class="code"><pre><code class=""><span class="line">date d(1992, 4, 6);
+</span><span class="line">
+</span><span class="line">date d18years = d + years(18);
+</span><span class="line">cout &lt;&lt; d18years &lt;&lt; " is "
+</span><span class="line">  &lt;&lt; d18years.day_of_week() &lt;&lt; endl;
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 </div>
 
@@ -208,12 +306,12 @@
   
 
 
-<time datetime="2013-11-18T18:10:00+08:00" pubdate data-updated="true">Nov 18<span>th</span>, 2013</time>
+<time datetime="2014-03-18T13:23:00+08:00" pubdate data-updated="true">Mar 18<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/coding/'>coding</a>
+    <a class='category' href='/blog/categories/boost/'>Boost</a>, <a class='category' href='/blog/categories/c-plus-plus/'>C++</a>
   
 </span>
 
@@ -224,9 +322,6 @@
   
   
   
-  
-    <div class="bshare-custom icon-medium"><a title="分享到豆瓣" class="bshare-douban" href="javascript:void(0);"></a><a title="分享到新浪微博" class="bshare-sinaminiblog" href="javascript:void(0);"></a><a title="分享到Evernote" class="bshare-evernote" href="javascript:void(0);"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span style="float: none;" class="BSHARE_COUNT bshare-share-count">7.72K</span></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
-      
 </div>
 
     
@@ -261,7 +356,7 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2013/11/18/markdownyu-fa-jian-ming/">Markdown语法简明</a>
+        <a href="/blog/2014/03/18/boost-date-application/">一些关于日期的实用例子(Boost)</a>
       </li>
     
       <li class="post">
@@ -286,7 +381,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - xuefu -
+  Copyright &copy; 2014 - xuefu -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
@@ -298,8 +393,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://xuefu.github.io/blog/2013/11/18/markdownyu-fa-jian-ming/';
-        var disqus_url = 'http://xuefu.github.io/blog/2013/11/18/markdownyu-fa-jian-ming/';
+        var disqus_identifier = 'http://xuefu.github.io/blog/2014/03/18/boost-date-application/';
+        var disqus_url = 'http://xuefu.github.io/blog/2014/03/18/boost-date-application/';
         var disqus_script = 'embed.js';
       
     (function () {
