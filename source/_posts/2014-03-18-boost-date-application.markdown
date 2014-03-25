@@ -1,0 +1,81 @@
+---
+layout: post
+title: "一些关于日期的实用例子(Boost)"
+date: 2014-03-18 13:23
+comments: true
+categories: Boost C++
+---
+
+### 显示月历
+
+```
+//standard headers
+#include <string>
+#include <iostream>
+#include <vector>
+#include <set>
+#include <map>
+#include <algorithm>
+using namespace std;
+
+#include <boost/date_time/gregorian/gregorian.hpp>
+using namespace boost::gregorian;
+
+int main(int argc, char *argv[])
+{
+  int i;
+  int year, month, day;
+
+  cout << "Please input the year: " << endl;
+  cin >> year;
+  cout << "Please input the month: " << endl;
+  cin >> month;
+  cout << "Please input the day: " << endl;
+  cin >> day;
+
+  date d(year, month, day);
+  date d_start(d.year(), d.month(), 1);
+  date d_end = d.end_of_month() + days(1);
+
+  cout << "Sun" << "\t" << "Mon" << "\t" << "Tue" << "\t"
+    << "Web" << "\t" << "Thu" << "\t" <<  "Fri" << "\t" 
+    << "Sat" << endl;
+
+  int w_start = d_start.day_of_week();
+
+  for (i = 0; i < w_start; i++) {
+    cout << "   " << "\t";
+  }
+
+  if (w_start == 6) {
+    cout << d_start.day() << endl;
+  } else {
+    cout << d_start.day() << "\t";
+  }
+
+  day_iterator d_iter(d_start + days(1));
+
+  for(; d_iter != d_end; ++d_iter)
+  {
+    if(d_iter->day_of_week() != 6)
+      cout << d_iter->day() << "\t";
+    else
+      cout << d_iter->day() << endl;
+
+  }
+  cout << endl;
+
+}
+
+```
+
+### 计算一个人的十八岁生日是星期几
+
+```
+date d(1992, 4, 6);
+
+date d18years = d + years(18);
+cout << d18years << " is "
+  << d18years.day_of_week() << endl;
+
+```
