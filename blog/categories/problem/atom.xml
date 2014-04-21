@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Problem | 樱空释]]></title>
+  <link href="http://xuefu.github.io/blog/categories/problem/atom.xml" rel="self"/>
+  <link href="http://xuefu.github.io/"/>
+  <updated>2014-04-21T23:39:23+08:00</updated>
+  <id>http://xuefu.github.io/</id>
+  <author>
+    <name><![CDATA[xuefu]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[被C坑过的那些年]]></title>
+    <link href="http://xuefu.github.io/blog/2014/04/21/bei-ckeng-guo-de-na-xie-nian/"/>
+    <updated>2014-04-21T23:38:00+08:00</updated>
+    <id>http://xuefu.github.io/blog/2014/04/21/bei-ckeng-guo-de-na-xie-nian</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+</feed>

@@ -4,7 +4,7 @@
   <title><![CDATA[樱空释]]></title>
   <link href="http://xuefu.github.io/atom.xml" rel="self"/>
   <link href="http://xuefu.github.io/"/>
-  <updated>2014-03-25T14:13:21+08:00</updated>
+  <updated>2014-04-21T23:39:23+08:00</updated>
   <id>http://xuefu.github.io/</id>
   <author>
     <name><![CDATA[xuefu]]></name>
@@ -14,182 +14,20 @@
 
   
   <entry>
-    <title type="html"><![CDATA[一些关于日期的实用例子(Boost)]]></title>
-    <link href="http://xuefu.github.io/blog/2014/03/18/boost-date-application/"/>
-    <updated>2014-03-18T13:23:00+08:00</updated>
-    <id>http://xuefu.github.io/blog/2014/03/18/boost-date-application</id>
-    <content type="html"><![CDATA[<h3 id="section">显示月历</h3>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-<span class="line-number">9</span>
-<span class="line-number">10</span>
-<span class="line-number">11</span>
-<span class="line-number">12</span>
-<span class="line-number">13</span>
-<span class="line-number">14</span>
-<span class="line-number">15</span>
-<span class="line-number">16</span>
-<span class="line-number">17</span>
-<span class="line-number">18</span>
-<span class="line-number">19</span>
-<span class="line-number">20</span>
-<span class="line-number">21</span>
-<span class="line-number">22</span>
-<span class="line-number">23</span>
-<span class="line-number">24</span>
-<span class="line-number">25</span>
-<span class="line-number">26</span>
-<span class="line-number">27</span>
-<span class="line-number">28</span>
-<span class="line-number">29</span>
-<span class="line-number">30</span>
-<span class="line-number">31</span>
-<span class="line-number">32</span>
-<span class="line-number">33</span>
-<span class="line-number">34</span>
-<span class="line-number">35</span>
-<span class="line-number">36</span>
-<span class="line-number">37</span>
-<span class="line-number">38</span>
-<span class="line-number">39</span>
-<span class="line-number">40</span>
-<span class="line-number">41</span>
-<span class="line-number">42</span>
-<span class="line-number">43</span>
-<span class="line-number">44</span>
-<span class="line-number">45</span>
-<span class="line-number">46</span>
-<span class="line-number">47</span>
-<span class="line-number">48</span>
-<span class="line-number">49</span>
-<span class="line-number">50</span>
-<span class="line-number">51</span>
-<span class="line-number">52</span>
-<span class="line-number">53</span>
-<span class="line-number">54</span>
-<span class="line-number">55</span>
-<span class="line-number">56</span>
-<span class="line-number">57</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">//standard headers
-</span><span class="line">#include &lt;string&gt;
-</span><span class="line">#include &lt;iostream&gt;
-</span><span class="line">#include &lt;vector&gt;
-</span><span class="line">#include &lt;set&gt;
-</span><span class="line">#include &lt;map&gt;
-</span><span class="line">#include &lt;algorithm&gt;
-</span><span class="line">using namespace std;
-</span><span class="line">
-</span><span class="line">#include &lt;boost/date_time/gregorian/gregorian.hpp&gt;
-</span><span class="line">using namespace boost::gregorian;
-</span><span class="line">
-</span><span class="line">int main(int argc, char *argv[])
-</span><span class="line">{
-</span><span class="line">  int i;
-</span><span class="line">  int year, month, day;
-</span><span class="line">
-</span><span class="line">  cout &lt;&lt; "Please input the year: " &lt;&lt; endl;
-</span><span class="line">  cin &gt;&gt; year;
-</span><span class="line">  cout &lt;&lt; "Please input the month: " &lt;&lt; endl;
-</span><span class="line">  cin &gt;&gt; month;
-</span><span class="line">  cout &lt;&lt; "Please input the day: " &lt;&lt; endl;
-</span><span class="line">  cin &gt;&gt; day;
-</span><span class="line">
-</span><span class="line">  date d(year, month, day);
-</span><span class="line">  date d_start(d.year(), d.month(), 1);
-</span><span class="line">  date d_end = d.end_of_month() + days(1);
-</span><span class="line">
-</span><span class="line">  cout &lt;&lt; "Sun" &lt;&lt; "\t" &lt;&lt; "Mon" &lt;&lt; "\t" &lt;&lt; "Tue" &lt;&lt; "\t"
-</span><span class="line">    &lt;&lt; "Web" &lt;&lt; "\t" &lt;&lt; "Thu" &lt;&lt; "\t" &lt;&lt;  "Fri" &lt;&lt; "\t" 
-</span><span class="line">    &lt;&lt; "Sat" &lt;&lt; endl;
-</span><span class="line">
-</span><span class="line">  int w_start = d_start.day_of_week();
-</span><span class="line">
-</span><span class="line">  for (i = 0; i &lt; w_start; i++) {
-</span><span class="line">    cout &lt;&lt; "   " &lt;&lt; "\t";
-</span><span class="line">  }
-</span><span class="line">
-</span><span class="line">  if (w_start == 6) {
-</span><span class="line">    cout &lt;&lt; d_start.day() &lt;&lt; endl;
-</span><span class="line">  } else {
-</span><span class="line">    cout &lt;&lt; d_start.day() &lt;&lt; "\t";
-</span><span class="line">  }
-</span><span class="line">
-</span><span class="line">  day_iterator d_iter(d_start + days(1));
-</span><span class="line">
-</span><span class="line">  for(; d_iter != d_end; ++d_iter)
-</span><span class="line">  {
-</span><span class="line">    if(d_iter-&gt;day_of_week() != 6)
-</span><span class="line">      cout &lt;&lt; d_iter-&gt;day() &lt;&lt; "\t";
-</span><span class="line">    else
-</span><span class="line">      cout &lt;&lt; d_iter-&gt;day() &lt;&lt; endl;
-</span><span class="line">
-</span><span class="line">  }
-</span><span class="line">  cout &lt;&lt; endl;
-</span><span class="line">
-</span><span class="line">}
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<h3 id="section-1">计算一个人的十八岁生日是星期几</h3>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">date d(1992, 4, 6);
-</span><span class="line">
-</span><span class="line">date d18years = d + years(18);
-</span><span class="line">cout &lt;&lt; d18years &lt;&lt; " is "
-</span><span class="line">  &lt;&lt; d18years.day_of_week() &lt;&lt; endl;
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+    <title type="html"><![CDATA[被C坑过的那些年]]></title>
+    <link href="http://xuefu.github.io/blog/2014/04/21/bei-ckeng-guo-de-na-xie-nian/"/>
+    <updated>2014-04-21T23:38:00+08:00</updated>
+    <id>http://xuefu.github.io/blog/2014/04/21/bei-ckeng-guo-de-na-xie-nian</id>
+    <content type="html"><![CDATA[
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[深入理解计算机系统读书笔记(11)]]></title>
-    <link href="http://xuefu.github.io/blog/2013/11/17/shen-ru-li-jie-ji-suan-ji-xi-tong-du-shu-bi-ji-11/"/>
-    <updated>2013-11-17T17:13:00+08:00</updated>
-    <id>http://xuefu.github.io/blog/2013/11/17/shen-ru-li-jie-ji-suan-ji-xi-tong-du-shu-bi-ji-11</id>
-    <content type="html"><![CDATA[<h3 id="section">网络编程</h3>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">/* IP地址结构 
-</span><span class="line"> * Internet address structure */
-</span><span class="line">struct in_addr {
-</span><span class="line">  unsigned int s_addr; /* Network byte order (big endian) */
-</span><span class="line">};
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>我们知道，现今大多数的物理主机存储数据的字节顺序都是小端法(即低字节存于低地址)，然而，由于因特网主机可以有不同的主机字节顺序，TCP/IP为任意整数数据项定义了统一的<strong>网络字节顺序</strong>(大端字节顺序)。因此，在IP地址结构中存放的地址总是以(大端法)<strong>网络字节顺序</strong>存放的。Unix提供了下面这样的函数在网络和主机字节顺序间实现转换:</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-<span class="line-number">4</span>
-<span class="line-number">5</span>
-<span class="line-number">6</span>
-<span class="line-number">7</span>
-<span class="line-number">8</span>
-</pre></td><td class="code"><pre><code class=""><span class="line">#include &lt;netinet/in.h&gt;
-</span><span class="line">
-</span><span class="line">unsigned long int htonl(unsigned long int hostlong);
-</span><span class="line">unsigned short int htonl(unsigned short int hostshort);
-</span><span class="line">                                                       返回：按照网络字节顺序的值
-</span><span class="line">unsigned long int ntohl(unsigned long int netlong);
-</span><span class="line">unsigned short int ntohl(unsigned short int netshort);
-</span><span class="line">                                                       返回：按照主机字节顺序的值
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+    <title type="html"><![CDATA[2048的Qt实现]]></title>
+    <link href="http://xuefu.github.io/blog/2014/04/21/"/>
+    <updated>2014-04-21T23:32:00+08:00</updated>
+    <id>http://xuefu.github.io/blog/2014/04/</id>
+    <content type="html"><![CDATA[
 ]]></content>
   </entry>
   
